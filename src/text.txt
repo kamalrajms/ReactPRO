@@ -1,0 +1,60 @@
+What is React?
+
+1) React is a JavaScript library (not a framework) developed by Facebook (Meta) for building user interfaces (UIs), especially Single Page Applications (SPAs).
+
+2) It helps developers build reusable UI components that update efficiently when data changes.
+
+Instead of reloading a whole webpage when something changes, React updates only the parts of the UI that need to change.
+
+-------
+Why do we use React?
+
+
+
+1) Component-Based Architecture
+
+	Breaks UI into small, reusable pieces (e.g., Navbar, Button, Card).
+
+	Easier to develop, test, and maintain.
+
+2) Virtual DOM (Performance Boost)
+
+	React uses a Virtual DOM (a lightweight copy of the actual DOM).
+
+	When data changes, React updates only the changed parts instead of re-rendering the whole page → 	makes apps faster.
+
+3) Reusable & Scalable
+
+	Components can be reused across projects.
+
+	Helps in building large, scalable applications easily.
+
+4) One-Way Data Flow
+
+	Data flows in a single direction (parent → child), making it predictable and easy to debug.
+
+5) Rich Ecosystem
+
+	Huge community, libraries, and tools (like Redux, Next.js).
+
+6) Cross-Platform
+
+	With React Native, you can build mobile apps (iOS/Android) using the same knowledge.
+
+------
+Why do we need React?
+
+	It makes UI development faster, cleaner, and more efficient.
+
+	Provides a better user experience with smooth updates without page reloads.
+---
+
+## styleing
+
+    global file
+    External file styleing
+    module.css file styleing
+    object way styleing
+    inline styleing
+
+## props
