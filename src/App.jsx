@@ -1,18 +1,16 @@
 import React from "react";
-import Greeting from "./Greeting";
-import Header from "./component/Header";
-import Object from "./component/Object";
-import Sub from "./component/subcom/Sub";
+import Greeting from "./component/Greeting";
+import ConditionalRendering from "./component/ConditionalRendering";
+import UsestateHook from "./component/UsestateHook";
 
 export default function App() {
+  const name = "Sai Kumar";
+  const age = 44;
   return (
-    <>
-      <Header />
-      <h1 className="hello"> hello world</h1>
-      <h2 style={{ padding: "100px", color: "yellow" }}>hello user</h2>
-      <Greeting />
-      <Sub />
-      <Object />
-    </>
+    <div>
+      <UsestateHook />
+      <Greeting name={name} age={age} />
+      <ConditionalRendering />
+    </div>
   );
 }

@@ -58,3 +58,30 @@ Why do we need React?
     inline styleing
 
 ## props
+
+  props is nothing but drilling data from one 
+  component to another component
+   
+
+        passing data useng props variable
+        Destructureing ob props
+
+## usestate()
+    usestate is react hook that allows you to add state(data that can change over time)
+    to a functionl component
+
+    const[state,setState]=usestate(initial value)
+
+    state=current value
+    setState=a function that updartes the state(current value)
+    initial value=starting value
+
+
+
+## conditional rendering
+
+    conditional rendering  mens showing or hidding parts of UI 
+    based on some conditions
+
+    ternary operator
+    logical operator
