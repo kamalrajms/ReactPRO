@@ -85,3 +85,9 @@ Why do we need React?
 
     ternary operator
     logical operator
+
+## listrendering 
+
+    rendering multiple item dynamically useing .map(),reducer(), filter(), find()
+
+
