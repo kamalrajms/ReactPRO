@@ -4,6 +4,9 @@ import ConditionalRendering from "./component/ConditionalRendering";
 import UsestateHook from "./component/UsestateHook";
 import ListRendering from "./component/ListRendering";
 import Dark from "./component/Dark";
+import InputFields from "./component/InputFields";
+import MultipleField from "./component/MultipleField";
+import RegistrationForm from "./component/RegistrationForm";
 
 export default function App() {
   const name = "Sai Kumar";
@@ -11,6 +14,9 @@ export default function App() {
   const [user, setUser] = useState(true);
   return (
     <div>
+      <RegistrationForm />
+      <MultipleField />
+      <InputFields />
       <Dark />
       {user ? <ListRendering /> : <ConditionalRendering />}
       <button onClick={() => setUser(!user)}>user</button>
