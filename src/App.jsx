@@ -7,6 +7,11 @@ import Dark from "./component/Dark";
 import InputFields from "./component/InputFields";
 import MultipleField from "./component/MultipleField";
 import RegistrationForm from "./component/RegistrationForm";
+import UseEffectHook from "./component/UseEffectHook";
+import SecUseEffect from "./component/SecUseEffect";
+import AIPUseeffect from "./component/AIPUseeffect";
+import Time from "./component/Time";
+import UseRef from "./component/UseRef";
 
 export default function App() {
   const name = "Sai Kumar";
@@ -14,6 +19,11 @@ export default function App() {
   const [user, setUser] = useState(true);
   return (
     <div>
+      <UseRef />
+      <Time />
+      <AIPUseeffect />
+      <SecUseEffect />
+      <UseEffectHook />
       <RegistrationForm />
       <MultipleField />
       <InputFields />

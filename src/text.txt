@@ -90,4 +90,28 @@ Why do we need React?
 
     rendering multiple item dynamically useing .map(),reducer(), filter(), find()
 
+## UseEffect()
 
+    In react, UseEffect is a hook let you peerform side effect in functionl components.
+    Side effect are task that happends outside the nornal react rendering process,like:
+
+        Fetching data from API 
+        Updating the browser DOM manually
+        Starting /stoping timers
+
+    if dependency is not mensioned meance it will execute
+    only once at the initial itself.
+
+    UseEffect(()=>{
+        //code
+    },[dependency 1, dependency 2.... ])
+
+## useref()
+
+    useref() is a react hook that gives you a box (.current) you can store
+    anything in -num,str,obj,function,een DOm elements.
+
+    that value persistes b/w rendering
+
+    updating it does not causes your componrent to 
+    re-render.
