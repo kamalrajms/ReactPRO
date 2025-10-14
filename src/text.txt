@@ -115,3 +115,15 @@ Why do we need React?
 
     updating it does not causes your componrent to 
     re-render.
+
+## useContext()
+
+    Passing data from a parent component down deeply to deep nested components is annoying.
+
+    Normally , you'd have to pass manually through each level (Calling drilling)
+
+    Usecontext,lts you skip all the middle compoonent and share data directly.
+
+        create a context
+        Provide a value
+        Consume the value

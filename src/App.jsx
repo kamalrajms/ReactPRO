@@ -12,6 +12,7 @@ import SecUseEffect from "./component/SecUseEffect";
 import AIPUseeffect from "./component/AIPUseeffect";
 import Time from "./component/Time";
 import UseRef from "./component/UseRef";
+import First from "./Context/First";
 
 export default function App() {
   const name = "Sai Kumar";
@@ -19,6 +20,10 @@ export default function App() {
   const [user, setUser] = useState(true);
   return (
     <div>
+      <div className="context">
+        App component
+        <First name={name} />
+      </div>
       <UseRef />
       <Time />
       <AIPUseeffect />
