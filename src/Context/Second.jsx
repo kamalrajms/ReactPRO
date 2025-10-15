@@ -1,11 +1,11 @@
 import React from "react";
 import Third from "./Third";
 
-export default function Second({ name }) {
+export default function Second() {
   return (
     <div className="context">
       second component
-      <Third name={name}/>
+      <Third />
     </div>
   );
 }

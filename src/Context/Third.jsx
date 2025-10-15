@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
-export default function Third({ name }) {
-  return <div className="context">Third component {name}</div>;
+import { Pass } from "../App";
+
+export default function Third() {
+  const passName = useContext(Pass);
+  return (
+    <div className="context">
+      <p>Third component {passName}</p>
+    </div>
+  );
 }

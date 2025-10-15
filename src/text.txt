@@ -127,3 +127,35 @@ Why do we need React?
         create a context
         Provide a value
         Consume the value
+
+## useReducer()
+
+    const [state,dispatch]=useReducer(ReducerFunction,initialState)
+
+    state--current state (like usestate value)
+    dispatch--a function to tell the reducer what to do
+    ReducerFunction(state,action)--the logic that returns a new state
+    initialState-- starting value
+
+## Routing in react
+
+    Routing means navigating b/w different pages  in a web applications 
+    without refreshing the browser.
+
+    In traditional website ,clicking a link reloads the hole page.
+
+    In react ( single page application) ,Routing  lets us changes the
+    view without reloading.
+
+            Better Performance
+            smooth User experience
+            Control over navigating without server request
+
+    npm install react-router-dom
+
+        <BrowserRouter>
+        <Routes>
+         <Route/>
+         <Route/>
+        </Routes>
+        </BrowserRouter>

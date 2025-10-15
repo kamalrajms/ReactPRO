@@ -1,11 +1,11 @@
 import React from "react";
 import Second from "./Second";
 
-export default function First({ name }) {
+export default function First() {
   return (
     <div className="context">
       Firt component
-      <Second name={name} />
+      <Second  />
     </div>
   );
 }
