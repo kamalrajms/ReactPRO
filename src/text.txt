@@ -137,7 +137,7 @@ Why do we need React?
     ReducerFunction(state,action)--the logic that returns a new state
     initialState-- starting value
 
-## Routing in react
+## Routing in react and Nested Routing
 
     Routing means navigating b/w different pages  in a web applications 
     without refreshing the browser.
@@ -159,3 +159,14 @@ Why do we need React?
          <Route/>
         </Routes>
         </BrowserRouter>
+
+## useParams()
+
+    useParams is a React Router hook that lets you access dynamic parameters from the URL.
+
+	It’s commonly used when you have routes with dynamic segments like /users/:id or /products/:productId.
+
+
+## useNavigate()
+
+    it is used to navigate from one component to another component.

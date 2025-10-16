@@ -19,6 +19,10 @@ import Home from "./Router/Home";
 import About from "./Router/About";
 import Services from "./Router/Services";
 import Contact from "./Router/Contact";
+import Header from "./Router/Header";
+import WebDev from "./Router/WebDev";
+import AppDev from "./Router/AppDev";
+import BlogDetailes from "./Router/BlogDetailes";
 
 export const Pass = createContext();
 
@@ -55,17 +59,16 @@ export default function App() {
         </div>
       )}
       <BrowserRouter>
-        <div className="menu">
-          <Link to={""}>Home</Link>
-          <Link to={"/About"}>About</Link>
-          <Link to={"/Services"}>Services</Link>
-          <Link to={"/Contact"}>Contact</Link>
-        </div>
+        <Header />
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Services" element={<Services />} />
+          <Route path="/Services" element={<Services />}>
+            <Route path="" element={<WebDev />} />
+            <Route path="appdevelopment" element={<AppDev />} />
+          </Route>
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Blogs/:id" element={<BlogDetailes />} />
         </Routes>
       </BrowserRouter>
     </div>
