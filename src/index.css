@@ -24,3 +24,37 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.chat {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chatApp {
+  width: 50%;
+  background-color: cornflowerblue;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+  flex-direction: column;
+}
+.chatApp > textarea {
+  width: 100%;
+  padding: 20px 0;
+  border: 2px solid black;
+}
+.chatApp > input {
+  width: 80%;
+  padding: 8px;
+  border: 1.5px solid black;
+}
+.chatApp > button {
+  padding: 8px 12px;
+  /* color: aliceblue; */
+  background-color: rgb(0, 255, 166);
+}
