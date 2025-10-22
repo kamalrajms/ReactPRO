@@ -1,76 +1,41 @@
-import React, { useState, useContext, createContext } from "react";
-import Greeting from "./component/Greeting";
-import ConditionalRendering from "./component/ConditionalRendering";
-import UsestateHook from "./component/UsestateHook";
-import ListRendering from "./component/ListRendering";
-import Dark from "./component/Dark";
-import InputFields from "./component/InputFields";
-import MultipleField from "./component/MultipleField";
-import RegistrationForm from "./component/RegistrationForm";
-import UseEffectHook from "./component/UseEffectHook";
-import SecUseEffect from "./component/SecUseEffect";
-import AIPUseeffect from "./component/AIPUseeffect";
-import Time from "./component/Time";
-import UseRef from "./component/UseRef";
-import First from "./Context/First";
-import UseReducerHook from "./component/UseReducerHook";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Home from "./Router/Home";
-import About from "./Router/About";
-import Services from "./Router/Services";
-import Contact from "./Router/Contact";
-import Header from "./Router/Header";
-import WebDev from "./Router/WebDev";
-import AppDev from "./Router/AppDev";
-import BlogDetailes from "./Router/BlogDetailes";
-
-export const Pass = createContext();
+import React, { useState } from "react";
+import Button from "./Button";
 
 export default function App() {
-  const name = "Sai Kumar";
-  const age = 44;
-  const [user, setUser] = useState(true);
-  const display = false;
-  return (
-    <div>
-      {display && (
-        <div>
-          <UseReducerHook />
-          <div className="context">
-            App component
-            <Pass.Provider value={name}>
-              <First />
-            </Pass.Provider>
-          </div>
-          <UseRef />
-          <Time />
-          <AIPUseeffect />
-          <SecUseEffect />
-          <UseEffectHook />
-          <RegistrationForm />
-          <MultipleField />
-          <InputFields />
-          <Dark />
-          {user ? <ListRendering /> : <ConditionalRendering />}
-          <button onClick={() => setUser(!user)}>user</button>
+  const [xnext, setXnext] = useState(true);
+  const [square, setSquare] = useState(Array(9).fill(null));
 
-          <UsestateHook />
-          <Greeting name={name} age={age} />
-        </div>
-      )}
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Services" element={<Services />}>
-            <Route path="" element={<WebDev />} />
-            <Route path="appdevelopment" element={<AppDev />} />
-          </Route>
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Blogs/:id" element={<BlogDetailes />} />
-        </Routes>
-      </BrowserRouter>
+  function handleclick(i) {
+    if (square[i]) {
+      return;
+    }
+    const nextSquare = square.slice();
+    if (xnext) {
+      nextSquare[i] = "x";
+    } else {
+      nextSquare[i] = "o";
+    }
+    setSquare(nextSquare);
+    setXnext(!xnext);
+  }
+  return (
+    <div className="game">
+      <h2>X O Game</h2>
+      <nav>
+        <Button value={square[0]} onSquareclick={() => handleclick(0)} />
+        <Button value={square[1]} onSquareclick={() => handleclick(1)} />
+        <Button value={square[2]} onSquareclick={() => handleclick(2)} />
+      </nav>
+      <nav>
+        <Button value={square[3]} onSquareclick={() => handleclick(3)} />
+        <Button value={square[4]} onSquareclick={() => handleclick(4)} />
+        <Button value={square[5]} onSquareclick={() => handleclick(5)} />
+      </nav>
+      <nav>
+        <Button value={square[6]} onSquareclick={() => handleclick(6)} />
+        <Button value={square[7]} onSquareclick={() => handleclick(7)} />
+        <Button value={square[8]} onSquareclick={() => handleclick(8)} />
+      </nav>
     </div>
   );
 }

@@ -58,3 +58,11 @@
   /* color: aliceblue; */
   background-color: rgb(0, 255, 166);
 }
+
+/* game */
+.game > nav {
+  display: flex;
+}
+.box {
+  padding: 12px;
+}
