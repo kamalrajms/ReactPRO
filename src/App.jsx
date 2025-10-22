@@ -1,47 +1,45 @@
-import React, { useState } from "react";
-import MoogInput from "./MoogInput";
-import MoodOut from "./MoodOut";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function App() {
-  const [mood, setMood] = useState("");
-  const [subject, setSubject] = useState("");
-  const [footer, setFooter] = useState("");
-  const [generator, setGenerator] = useState(false);
+const App = () => {
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const handleGenerate = () => {
-    const lower = mood.toLocaleLowerCase();
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.openweathermap.org/data/2.5/weather",
+          {
+            params: {
+              q: "Chennai",
+              appid: "YOUR_API_KEY",
+              units: "metric",
+            },
+          }
+        );
+        setWeather(response.data);
+      } catch (err) {
+        setError("Failed to fetch data");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (lower.includes("happy")) {
-      setSubject("i feel very happy");
-      setFooter("happy");
-    } else if (lower.includes("sad")) {
-      setSubject("i feel very not happy");
-      setFooter("sad");
-    } else {
-      setSubject("enter meaning data");
-      setFooter("i am not understand");
-    }
-    setGenerator(true);
-  };
-  const handleReset = () => {
-    setFooter("");
-    setMood("");
-    setSubject("");
-    setGenerator(false);
-  };
+    fetchWeather();
+  }, []);
+
+  if (loading) return <p>Loading weather data...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
-    <div className="mail">
-      <h2>Mood mail Generator</h2>
-      {!generator ? (
-        <MoogInput
-          mood={mood}
-          setMood={setMood}
-          disable={generator}
-          handleGenerate={handleGenerate}
-        />
-      ) : (
-        <MoodOut subject={subject} footer={footer} handleReset={handleReset} />
-      )}
+    <div style={{ textAlign: "center" }}>
+      <h2>Weather in {weather.name}</h2>
+      <p>Temperature: {weather.main.temp} °C</p>
+      <p>Condition: {weather.weather[0].description}</p>
     </div>
   );
-}
+};
+
+export default App;
