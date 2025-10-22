@@ -1,41 +1,47 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import MoogInput from "./MoogInput";
+import MoodOut from "./MoodOut";
 
 export default function App() {
-  const [xnext, setXnext] = useState(true);
-  const [square, setSquare] = useState(Array(9).fill(null));
+  const [mood, setMood] = useState("");
+  const [subject, setSubject] = useState("");
+  const [footer, setFooter] = useState("");
+  const [generator, setGenerator] = useState(false);
 
-  function handleclick(i) {
-    if (square[i]) {
-      return;
-    }
-    const nextSquare = square.slice();
-    if (xnext) {
-      nextSquare[i] = "x";
+  const handleGenerate = () => {
+    const lower = mood.toLocaleLowerCase();
+
+    if (lower.includes("happy")) {
+      setSubject("i feel very happy");
+      setFooter("happy");
+    } else if (lower.includes("sad")) {
+      setSubject("i feel very not happy");
+      setFooter("sad");
     } else {
-      nextSquare[i] = "o";
+      setSubject("enter meaning data");
+      setFooter("i am not understand");
     }
-    setSquare(nextSquare);
-    setXnext(!xnext);
-  }
+    setGenerator(true);
+  };
+  const handleReset = () => {
+    setFooter("");
+    setMood("");
+    setSubject("");
+    setGenerator(false);
+  };
   return (
-    <div className="game">
-      <h2>X O Game</h2>
-      <nav>
-        <Button value={square[0]} onSquareclick={() => handleclick(0)} />
-        <Button value={square[1]} onSquareclick={() => handleclick(1)} />
-        <Button value={square[2]} onSquareclick={() => handleclick(2)} />
-      </nav>
-      <nav>
-        <Button value={square[3]} onSquareclick={() => handleclick(3)} />
-        <Button value={square[4]} onSquareclick={() => handleclick(4)} />
-        <Button value={square[5]} onSquareclick={() => handleclick(5)} />
-      </nav>
-      <nav>
-        <Button value={square[6]} onSquareclick={() => handleclick(6)} />
-        <Button value={square[7]} onSquareclick={() => handleclick(7)} />
-        <Button value={square[8]} onSquareclick={() => handleclick(8)} />
-      </nav>
+    <div className="mail">
+      <h2>Mood mail Generator</h2>
+      {!generator ? (
+        <MoogInput
+          mood={mood}
+          setMood={setMood}
+          disable={generator}
+          handleGenerate={handleGenerate}
+        />
+      ) : (
+        <MoodOut subject={subject} footer={footer} handleReset={handleReset} />
+      )}
     </div>
   );
 }
